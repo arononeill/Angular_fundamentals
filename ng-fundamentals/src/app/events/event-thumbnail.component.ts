@@ -1,5 +1,4 @@
-import { Component, Input, Output } from '@angular/core'
-import { EventEmitter } from 'protractor';
+import { Component, Input, Output, EventEmitter } from '@angular/core'
 
 @Component({
     selector: 'event-thumbnail',
@@ -16,14 +15,14 @@ import { EventEmitter } from 'protractor';
             <span>&nbsp;</span>
             <span>{{event.location.city}}, {{event.location.country}}</span>
         </div>
-        
     </div> 
     `
+    /* Line 18 creates a button with function name handleClickMe() which corresponds to the 
+    EventThumbnailComponent component below */
 })
 
 export class EventThumbnailComponent {
     // This tells angular that event is going to be passed in by another component 
     // and it's type can any data type
-    @Input() event:any  
-    
+    @Input() event:any
 }

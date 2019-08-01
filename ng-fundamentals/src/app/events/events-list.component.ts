@@ -11,10 +11,9 @@ import { Component } from '@angular/core'
         <event-thumbnail [event]="event1"></event-thumbnail>
     </div>
     `
-    /* The event-thumbnail tags match the selector in the event-thumbnail component.
-    The [ ] in html automatically corresponds to an input variable
-    The [event] on line 11 refers to the input object in the thumbnail component
-    Whilst "event1" refers to the member in the component below */
+    /* Basically, when the eventClick event is fired on the event-thumbernail component, call the 
+    "handleEventCLicked()" method on my component.
+    The $event refers to the data emitted with our event (in this case, the string testing) */
 })
 
 export class EventsListComponent {
@@ -30,5 +29,5 @@ export class EventsListComponent {
             city: 'London',
             country: 'England'
         }
-    }  
+    }
 }
