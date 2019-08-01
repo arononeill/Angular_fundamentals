@@ -2,12 +2,33 @@ import { Component } from '@angular/core'
 
 @Component({
     selector: 'events-list',
+    /* This is how you refernce a html page instead of putting in all the code here
+    templateUrl: './events-list.component.html' */
     template: `
-        <h2>HW</h2>
-        <img src="/assets/images/basic-shield.png"/>
+    <div>
+        <h1>Upcoming Angular Events</h1>
+        <hr>
+        <event-thumbnail [event]="event1"></event-thumbnail>
+    </div>
     `
+    /* The event-thumbnail tags match the selector in the event-thumbnail component.
+    The [ ] in html automatically corresponds to an input variable
+    The [event] on line 11 refers to the input object in the thumbnail component
+    Whilst "event1" refers to the member in the component below */
 })
 
 export class EventsListComponent {
-    
+    event1 = {
+        id: 1,
+        name: 'Angular Connect',
+        date: '9/26/2036',
+        time: '10:00am',
+        price: 599.99,
+        imageUrl: '/assets/images/angularconnect-shield.png',
+        location: {
+            address: '1057 DT',
+            city: 'London',
+            country: 'England'
+        }
+    }  
 }
