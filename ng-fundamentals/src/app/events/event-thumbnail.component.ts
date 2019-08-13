@@ -12,11 +12,16 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
         <div>Price: \${{event.price}}</div>
         <div>
             <span>Location: {{event.location.address}}</span>
-            <span>&nbsp;</span>
-            <span>{{event.location.city}}, {{event.location.country}}</span>
+            <span class="pad-left">{{event.location.city}}, {{event.location.country}}</span>
         </div>
     </div> 
-    `
+    `,
+    styles: [`
+        .thumbnail { min-height: 500px; }
+        .pad-left { margin-left: 10px; }
+        .well div {color: #bbb; }
+    `]
+
     /* Line 18 creates a button with function name handleClickMe() which corresponds to the 
     EventThumbnailComponent component below */
 })
@@ -25,4 +30,6 @@ export class EventThumbnailComponent {
     // This tells angular that event is going to be passed in by another component 
     // and it's type can any data type
     @Input() event:any
+    /* someProperty:any = "some value"
+    This is how you declare a child attribute to be accessed in the parent list component class */
 }
