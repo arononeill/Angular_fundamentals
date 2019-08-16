@@ -8,7 +8,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
         with the properties such as name, date and time */ -->
         <h2>{{event?.name}}</h2>
         <div>Date: {{event?.date}}</div>
-        <div [ngClass]="getStartTimeClass()" [ngSwitch]="event?.time">
+        <div [ngStyle]="getStartTimeStyle()" [ngSwitch]="event?.time">
             Time: {{event?.time}}  
             <span *ngSwitchCase="'8:00 am'">(Early Start)</span>
             <span *ngSwitchCase="'10:00 am'">(Late Start)</span>
@@ -43,11 +43,11 @@ export class EventThumbnailComponent {
     /* someProperty:any = "some value"
     This is how you declare a child attribute to be accessed in the parent list component class */
 
-    getStartTimeClass() {
+    getStartTimeStyle() {
         /* Here if the event.time = 8am then an array is returned containing the names of the 
         classes assigned to the div, else it returns an empty array  */
         if (this.event && this.event.time === '8:00 am')
-            return ['green', 'bold']
-        return []
+            return {color: '#003300', 'font-weight': 'bold'}
+        return {}
     }
 }
