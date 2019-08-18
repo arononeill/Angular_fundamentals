@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core'
 import { EventService } from './shared/event.service';
 import { toBase64String } from '@angular/compiler/src/output/source_map';
+import { ToastrService } from '../common/toastr.service'
 
-declare let toastr 
+declare let toastr
 
 @Component({
-    selector: 'events-list',
     /* This is how you reference a html page instead of putting in all the code here
     templateUrl: './events-list.component.html' */
     template: `
@@ -15,8 +15,7 @@ declare let toastr
         <div class="row">
         
             <div *ngFor="let event of events" class="col-md-5">
-                <event-thumbnail (click)="handleThumbnailClick(event.name)" 
-                [event]="event"></event-thumbnail>
+                <event-thumbnail (click)="handleThumbnailClick(event.name)" [event]="event"></event-thumbnail>
             </div>
         </div>
     </div>
@@ -41,7 +40,9 @@ export class EventsListComponent implements OnInit {
     /* This injects the eventService found in the event.service.ts file. Angular knows where to
     find this as EventService was added to the applicationCache.module */
     events:any[] // This is an events variable of any type.
-    constructor(private eventService: EventService) {
+
+    // the toastr parameter here allows us to inject the toastr service
+    constructor(private eventService: EventService, private toastr: ToastrService) {
       
     }
 
@@ -49,7 +50,8 @@ export class EventsListComponent implements OnInit {
       this.events = this.eventService.getEvents()
     }
 
+    // Here, we are injecting the toastr service
     handleThumbnailClick(eventName) {
-      toastr.success(eventName)
+        this.toastr.success(eventName)
     }
 }
