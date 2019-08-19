@@ -10,13 +10,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
         <div>Date: {{event?.date}}</div>
         <div>Price: {{event?.time}}</div> 
         <div>Price: \${{event?.price}}</div>
-        <div [hidden]="!event?.location">
+        <div *ngIf="event?.location">
             <span>Location: {{event?.location.address}}</span>
             <span class="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
         </div>
-        <div [hidden]="!event?.onlineUrl">
-            Online URL: {{event?.onlineUrl}}
-        </div>
+        <div *ngIf="event?.onlineUrl">Online URL: {{event?.onlineUrl}}</div>
     </div>
     `,
     styles: [`
@@ -25,7 +23,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
         .well div {color: #bbb; }
     `]
 
-    /* Line 18 creates a button with function name handleClickMe() which corresponds to the 
+    /*  <div *ngIf="event?.location">
+    
+    This allows the code to check whether or not the attribute location, for the event is null.
+    If it is null then this div will be ignored.
+
+    Line 18 creates a button with function name handleClickMe() which corresponds to the 
     EventThumbnailComponent component below */
 })
 
