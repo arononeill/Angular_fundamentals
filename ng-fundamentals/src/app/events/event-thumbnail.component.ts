@@ -3,7 +3,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
 @Component({
     selector: 'event-thumbnail',
     template: `
-    <div class="well hoverwell thumbnail">
+    <div [routerLink]="['/events', event.id]" class="well hoverwell thumbnail">
         <!-- angular will lookin the EventsListComponent and expect to find an object called event 
         with the properties such as name, date and time */ -->
         <h2>{{event?.name}}</h2>
