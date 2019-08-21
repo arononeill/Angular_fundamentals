@@ -1,9 +1,19 @@
 import { Injectable } from '@angular/core'
+import { Subject } from 'rxjs'
 
 @Injectable()
 export class EventService {
+    // The function of this function is to return an observable
     getEvents() {
-        return EVENTS
+      /* subject is a type of observable and an observable is like a an array which arrives over 
+      time. Here, we're using a timeout to simulate asynchrony; after 100 ms we'll add data to the
+      stream and at the end we return the observable, subject. This can be used to slowly load a
+      web page.
+      */
+      let subject = new Subject()
+      setTimeout(() => {subject.next(EVENTS); subject.complete(); },
+        100)
+        return subject
     }
 
     getEvent(id:number) {

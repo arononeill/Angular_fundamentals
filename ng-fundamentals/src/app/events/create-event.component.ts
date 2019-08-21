@@ -18,6 +18,7 @@ import { Router } from '@angular/router'
 /*To navigate to a different page, we have to use angular's routing component. So, it has to be imported 
 and then injected which is done by initialising it's constructor. */
 export class CreateEventComponent {
+    isDirty:boolean = true
     constructor(private router: Router) {
 
     }
