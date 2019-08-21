@@ -3,6 +3,7 @@ import { EventService } from './shared/event.service';
 import { toBase64String } from '@angular/compiler/src/output/source_map';
 import { ToastrService } from '../common/toastr.service'
 import { ActivatedRoute } from '@angular/router'
+import { IEvent } from './shared/index'
 
 declare let toastr
 
@@ -40,7 +41,7 @@ declare let toastr
 export class EventsListComponent implements OnInit {
     /* This injects the eventService found in the event.service.ts file. Angular knows where to
     find this as EventService was added to the applicationCache.module */
-    events:any // This is an events variable of any type.
+    events:IEvent[] // This is an events variable of any type.
 
     /* the toastr parameter here allows us to inject the toastr service, same applies for all the
     services injected here */
