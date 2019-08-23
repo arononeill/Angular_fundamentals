@@ -38,9 +38,9 @@ import { IEvent } from './shared/index'
 })
 
 export class EventThumbnailComponent {
-    // This tells angular that event is going to be passed in by another component 
-    // and it's type can any data type
-    @Input() event:any
+    /* This tells angular that event is going to be passed in by another component and be of type
+    IEvent */
+    @Input() event:IEvent
     /* someProperty:any = "some value"
     This is how you declare a child attribute to be accessed in the parent list component class */
 
