@@ -28,7 +28,10 @@
         <div class="navbar-header navbar-right">
           <ul class="nav navbar-nav">
             <li>
-              <a [routerLink]="['user/profile']">Welcome John</a>
+              <!-- This link will only show if the user is authenticated using the function provided-->
+              <a *ngIf="!auth.isAuthenticated()" [routerLink]="['user/login']">Login</a>
+              <a *ngIf="isAuthenticated()" [routerLink]="['user/profile']">Welcome  
+              {{auth.currentUser.firstName}}</a>
             </li>
           </ul>
         </div>

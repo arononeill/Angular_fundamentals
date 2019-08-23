@@ -17,6 +17,7 @@ import { NavBarComponent } from './nav/navbar.component'
 import { ToastrService } from './common/toastr.service'
 import { appRoutes } from './routes'
 import { Error404Component } from './errors/404.component'
+import { AuthService } from './user/auth.service'
 import { from } from 'rxjs';
 
 
@@ -38,6 +39,7 @@ import { from } from 'rxjs';
     EventService,
     ToastrService,
     EventRouteActivator,
+    AuthService,
     EventListResolver,
     /* This syntax means when the 'canDeactivateCreateEvent' function is requested, 
     use 'checkDirtyState' */
